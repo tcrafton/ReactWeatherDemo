@@ -1,4 +1,11 @@
-export default function(state = null, action){
+import { FETCH_WEATHER } from '../actions/index';
 
-  return state;
+export default function(state = [], action){
+  switch (action.type) {
+    case FETCH_WEATHER:
+      return [ action.payload.data, ...state ];
+      break;
+    default:
+      return state;
+  }
 }
